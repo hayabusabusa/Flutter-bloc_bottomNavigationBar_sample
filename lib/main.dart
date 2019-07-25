@@ -10,7 +10,7 @@ class BlocNaviBarApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bloc NaviBar App',
-      home: TabScreen(),
+      home: SelectionScreen(),
     );
   }
 }
