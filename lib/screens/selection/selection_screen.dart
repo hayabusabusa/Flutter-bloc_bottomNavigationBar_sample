@@ -42,8 +42,13 @@ class SelectionScreen extends StatelessWidget {
             title: 'Cupertino',
             description: 'Cupertino Bottom Tab Bar example.\nBest Solution of Nested Navigator.',
             onTapHandler: () {
-              // TODO: Navigation to Tab
-              
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return CupertinoTabScreen();
+                  }
+                ),
+              );
             },
           ),
         ],
