@@ -32,7 +32,7 @@ class SelectionScreen extends StatelessWidget {
             title: 'Advanced',
             description: 'Advanced Tab example.\nNested Navigator',
             onTapHandler: () {
-              Navigator.of(context).push(
+              Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
                   builder: (context) {
                     return AdvancedTabScreen();

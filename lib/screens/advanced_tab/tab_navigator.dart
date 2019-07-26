@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:bloc_bottom_navigation_sample/models/models.dart';
 import 'package:bloc_bottom_navigation_sample/screens/advanced_tab/advanced_screens.dart';
-import 'package:bloc_bottom_navigation_sample/screens/screens.dart';
 
 // タブの階層とその次の階層のキー名
 class TabNavigatorRoutes {
@@ -51,19 +51,38 @@ class TabNavigator extends StatelessWidget {
             return Text('unknown AppTab type.');
         }
       },
-      TabNavigatorRoutes.detail: (context) => AdvancedDetailScreen(),
+      TabNavigatorRoutes.detail: (context) {
+        switch (tab) {
+          case AppTab.first:
+            return AdvancedFirstDetailScreen();
+          default:
+            return AdvancedDetailScreen();
+        }
+      },
     };
   }
 
   // Navigatorにpushする
   void _push(BuildContext context) {
     var routeBuilders = _routeBuilders(context);
-    
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => routeBuilders[TabNavigatorRoutes.detail](context)
-      ),
-    );
+
+    switch (tab) {
+      case AppTab.first:
+        Navigator.push(
+          context,
+          CupertinoPageRoute(
+            builder: (context) => routeBuilders[TabNavigatorRoutes.detail](context)
+          ),
+        );
+        break;
+      default:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => routeBuilders[TabNavigatorRoutes.detail](context)
+          ),
+        );
+        break;
+    }
   }
 }

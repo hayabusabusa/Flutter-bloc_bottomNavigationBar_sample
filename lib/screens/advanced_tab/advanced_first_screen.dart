@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class AdvancedFirstScreen extends StatelessWidget {
   final Function onPush;
@@ -10,14 +11,8 @@ class AdvancedFirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('First'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () { },
-          ),
-        ],
+      appBar: CupertinoNavigationBar(
+        middle: Text('First'),
       ),
       body: Center(
         child: RaisedButton(

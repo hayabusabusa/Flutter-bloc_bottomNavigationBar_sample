@@ -45,7 +45,8 @@ class CupertinoTabScreen extends StatelessWidget {
             });
           case 1:
             return CupertinoTabView(builder: (context) {
-              // TODO: FloatingActionButtonがTabBarの下になってしまうので調査。
+              // loatingActionButtonがTabBarの下になってしまう
+              // -> Scaffoldが見つからないから。
               return SecondScreen();
             });
           case 2:
